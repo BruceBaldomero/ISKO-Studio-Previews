@@ -135,6 +135,11 @@ This is the primary way I find clients:
 - Deploy to github.io preview URL
 - Warm, human tone — not corporate
 
+**Deployment rule — always do this after every preview build:**
+1. Commit the files
+2. Push to `main` (not a feature branch) so GitHub Pages serves it immediately
+3. Preview URL is live at: `brucebaldomero.github.io/previews/[business-name]/`
+
 ---
 
 ## My existing work / portfolio
