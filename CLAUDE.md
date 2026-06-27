@@ -137,8 +137,8 @@ This is the primary way I find clients:
 
 **Deployment rule — always do this after every preview build:**
 1. Commit the files
-2. Push to `main` (not a feature branch) so GitHub Pages serves it immediately
-3. Preview URL is live at: `brucebaldomero.github.io/previews/[business-name]/`
+2. Push to `main` (not a feature branch) — GitHub Actions deploys automatically
+3. Preview URL is live at: `brucebaldomero.github.io/ISKO-Studio-Previews/previews/[business-name]/`
 
 ---
 
