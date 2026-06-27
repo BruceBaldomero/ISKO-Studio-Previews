@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moon — Speciality Coffee &amp; Brunch · Surbiton</title>
+  <meta name="description" content="Moon is Surbiton's neighbourhood spot for speciality coffee, weekend brunch, and freshly baked treats. 249 Ewell Road, KT6 7AA.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --red:      #C8312A;
+      --red-dark: #A8261F;
+      --orange:   #D4601E;
+      --cream:    #FDF8F3;
+      --cream-2:  #F5EDE3;
+      --dark:     #1C1412;
+      --muted:    #7A6965;
+      --white:    #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PREVIEW BANNER ────────────────────────── */
+    .preview-banner {
+      background: #111;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    .preview-banner strong { color: #fff; }
+    .preview-banner a { color: rgba(255,255,255,0.6); }
+    .preview-banner a:hover { color: #fff; }
+
+    /* ── HERO ──────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: calc(100vh - 38px);
+    }
+
+    .hero-text {
+      background: var(--red);
+      color: var(--white);
+      padding: 72px 60px 72px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* big decorative circle — moon motif */
+    .hero-text::before {
+      content: '';
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: var(--orange);
+      opacity: 0.2;
+      top: -140px;
+      left: -140px;
+      pointer-events: none;
+    }
+    /* smaller outline circle bottom-right */
+    .hero-text::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      bottom: 56px;
+      right: 48px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 22px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(4.5rem, 9vw, 7.5rem);
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      opacity: 0.6;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      font-weight: 300;
+      opacity: 0.88;
+      max-width: 340px;
+      margin-bottom: 44px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--red);
+      padding: 14px 28px;
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.18s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--cream-2); }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(255,255,255,0.45);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: border-color 0.18s, background 0.18s;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-image {
+      background: var(--cream-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      color: #b8a8a0;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .img-placeholder-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1.5px dashed #c9b8b0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .img-placeholder-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: #c9b8b0;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── ABOUT ─────────────────────────────────── */
+    .about {
+      padding: 100px 56px;
+    }
+
+    .about-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .about h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.12;
+      margin-bottom: 28px;
+      letter-spacing: -0.015em;
+    }
+
+    .about p {
+      font-size: 1.06rem;
+      color: #4A3D39;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+    .about p + p { margin-top: 16px; }
+
+    .about-image-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 56px;
+    }
+
+    .about-img-block {
+      background: var(--cream-2);
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-img-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #b8a8a0;
+    }
+
+    /* ── OFFER ─────────────────────────────────── */
+    .offer {
+      background: var(--red);
+      color: var(--white);
+      padding: 88px 56px;
+    }
+
+    .offer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .offer .section-label { color: rgba(255,255,255,0.55); }
+
+    .offer h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 56px;
+      letter-spacing: -0.015em;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .offer-card {
+      background: var(--red);
+      padding: 44px 36px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* per-card orange circle */
+    .offer-card::after {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--orange);
+      opacity: 0.1;
+      bottom: -48px;
+      right: -48px;
+      pointer-events: none;
+    }
+
+    .offer-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      line-height: 1;
+      color: rgba(255,255,255,0.15);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .offer-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .offer-card p {
+      font-size: 0.92rem;
+      opacity: 0.78;
+      line-height: 1.7;
+      font-weight: 300;
+      position: relative;
+    }
+
+    /* ── HOURS & FIND US ──────────────────────── */
+    .find-us-wrap {
+      padding: 96px 56px;
+    }
+
+    .find-us {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 88px;
+      align-items: start;
+    }
+
+    .find-us-info h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 36px;
+      letter-spacing: -0.015em;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+
+    .hours-table td {
+      padding: 11px 0;
+      border-bottom: 1px solid #E8DDD8;
+      font-size: 0.95rem;
+    }
+
+    .hours-table td:first-child {
+      color: var(--muted);
+      width: 130px;
+      font-weight: 500;
+    }
+
+    .address-block p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .gmaps-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--red);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 14px;
+      letter-spacing: 0.01em;
+    }
+    .gmaps-link:hover { text-decoration: underline; }
+
+    .map-wrap {
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--cream-2);
+      box-shadow: 0 2px 20px rgba(28,20,18,0.08);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* ── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      padding: 52px 56px 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 28px;
+    }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .footer-addr {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.18s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.28);
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-text {
+        padding: 80px 28px 64px;
+      }
+      .hero-text::before {
+        width: 300px;
+        height: 300px;
+        top: -80px;
+        left: -80px;
+      }
+      .hero-image {
+        min-height: 52vw;
+      }
+
+      .about { padding: 64px 28px; }
+      .about-image-row { grid-template-columns: 1fr 1fr; }
+
+      .offer { padding: 64px 28px; }
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .find-us-wrap { padding: 64px 28px; }
+      .find-us {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      footer { padding: 48px 28px 36px; }
+      .footer-top { flex-direction: column; }
+      .footer-links { align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .about-image-row { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-ghost { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preview banner -->
+  <div class="preview-banner">
+    <strong>Preview concept</strong> — designed by <strong>ISKO Studio</strong> &middot; <a href="https://iskostudio.com" target="_blank" rel="noopener">iskostudio.com</a>
+  </div>
+
+  <!-- ─────────── 1. HERO ─────────── -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">249 Ewell Road &middot; Surbiton &middot; KT6 7AA</p>
+      <h1 class="hero-name">Moon.</h1>
+      <p class="hero-subtitle">Coffee &amp; Brunch</p>
+      <p class="hero-tagline">Speciality coffee, proper brunch, and bakes worth the detour — right here on Ewell Road.</p>
+      <div class="hero-ctas">
+        <a href="#find-us" class="btn-primary">Find us &amp; opening hours</a>
+        <a href="https://www.instagram.com/moon.brunch.and.coffee/" target="_blank" rel="noopener" class="btn-ghost">@moon.brunch.and.coffee</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        Photo — café front or food
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── 2. ABOUT ─────────── -->
+  <section class="about">
+    <div class="about-inner">
+      <span class="section-label">Who we are</span>
+      <h2>Your neighbourhood spot<br>on Ewell Road.</h2>
+      <p>Moon is a little café doing big things — speciality coffee sourced and brewed with care, a brunch menu that changes with what's good, and bakes that regularly sell out before the weekend is done. We've been part of Surbiton since we opened, and we plan to stay.</p>
+      <p>Dog-friendly, relaxed, and always happy to see you. Come in on your own, bring the family, bring whoever. We'll have something good waiting.</p>
+      <div class="about-image-row">
+        <div class="about-img-block"><span class="about-img-label">Interior</span></div>
+        <div class="about-img-block"><span class="about-img-label">Food shot</span></div>
+        <div class="about-img-block"><span class="about-img-label">Coffee</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── 3. WHAT WE DO ─────────── -->
+  <section class="offer">
+    <div class="offer-inner">
+      <span class="section-label">What we do</span>
+      <h2>Good things, done properly.</h2>
+      <div class="offer-grid">
+        <div class="offer-card">
+          <span class="offer-number">01</span>
+          <h3>Speciality Coffee</h3>
+          <p>Sourced carefully, brewed properly. Whether it's your morning flat white, a mid-afternoon iced latte, or something a little different — we take coffee seriously so you don't have to think about it.</p>
+        </div>
+        <div class="offer-card">
+          <span class="offer-number">02</span>
+          <h3>Brunch</h3>
+          <p>From a proper full breakfast to something lighter — our brunch menu is made with care and built around what's actually good right now. Open every day, no reservations needed.</p>
+        </div>
+        <div class="offer-card">
+          <span class="offer-number">03</span>
+          <h3>Sweet Things</h3>
+          <p>Cookies, bakes, and the kind of treats you didn't know you needed until you walked past the counter. Made in-house, gone by the afternoon. Come early if you want the pistachio pull-apart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── 4. HOURS & FIND US ─────────── -->
+  <section id="find-us" class="find-us-wrap">
+    <div class="find-us">
+      <div class="find-us-info">
+        <span class="section-label">Hours &amp; location</span>
+        <h2>Come and find us.</h2>
+        <table class="hours-table">
+          <tr>
+            <td>Mon – Sat</td>
+            <td>7:30am – 5:30pm</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>8:00am – 5:00pm</td>
+          </tr>
+        </table>
+        <div class="address-block">
+          <p>249 Ewell Road<br>Surbiton, London<br>KT6 7AA</p>
+          <a
+            href="https://maps.google.com/?q=249+Ewell+Road+Surbiton+KT6+7AA"
+            target="_blank"
+            rel="noopener"
+            class="gmaps-link"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Open in Google Maps
+          </a>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=249+Ewell+Road+Surbiton+KT6+7AA&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Moon Coffee &amp; Brunch — Google Maps">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── 5. FOOTER ─────────── -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Moon.</div>
+        <p class="footer-addr">
+          249 Ewell Road, Surbiton<br>
+          London KT6 7AA
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/moon.brunch.and.coffee/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @moon.brunch.and.coffee
+        </a>
+        <a href="https://maps.google.com/?q=249+Ewell+Road+Surbiton+KT6+7AA" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+      </div>
+    </div>
+    <p class="footer-bottom">Preview concept built by ISKO Studio &middot; iskostudio.com &middot; Not the official Moon website.</p>
+  </footer>
+
+</body>
+</html>
